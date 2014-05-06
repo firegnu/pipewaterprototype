@@ -284,12 +284,12 @@ var PipeGame = (function() {
 		});
 
 		$(".menu-button").click(function() {
-            $('.water')
+            /*$('.water')
                 .animate({opacity: 0.3}, 2000, function() {
                     $(this)
                         .css({'background-image': 'url(img/hotwater.jpg)'})
                         .animate({opacity: 1}, 6000);
-                });
+                });*/
 		});
 
         $('.valvestart').click(function() {
