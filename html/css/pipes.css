@@ -670,6 +670,9 @@ box-shadow: inset -2px 2px 6px #052756, 0px 1px 0px #60c9f0;
 }
 
 .additiv-options {
-    opacity: 0;
+    opacity: 0.8;
 }
 
+.menu-button {
+    opacity: 0;
+}

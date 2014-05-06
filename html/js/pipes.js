@@ -181,6 +181,10 @@ var PipeGame = (function() {
 	var _displayTimer = null;
 	var _paused = false;
 	var _eventsAdded = false;
+    var _pipeLevel = [[[0,0,1,1],[1,1,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]],
+        [[0,0,0,0],[0,0,1,1],[1,1,0,0],[0,1,1,0],[1,1,0,0],[0,0,0,0]],
+        [[0,0,0,0],[0,0,0,0],[0,0,1,1],[1,0,0,1],[0,0,1,1],[1,1,0,0]],
+        [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,1,0,1]]];
 
 	function _configure(options) {
 		_numCols = options.cols;
@@ -192,6 +196,7 @@ var PipeGame = (function() {
 		_autoStart = options.autoStart || null;
         gameOptionsManager.godMode = options.godMode || false;
 		gameOptionsManager.additiveMode = options.additiveMode || false;
+        _pipeLevel = options.level;
 	}
 
 	function _setGameBoard(level) {
@@ -275,7 +280,7 @@ var PipeGame = (function() {
 
 	function _addButtonEvents() {
 		$(".start").click(function() {
-            PipeGame.startWater();
+            PipeGame.setGameBoard(PipeGame.pipeLevel);
 		});
 
 		$(".menu-button").click(function() {
@@ -330,7 +335,8 @@ var PipeGame = (function() {
 		setGameBoard : _setGameBoard,
 		configure : _configure,
 		fillSpeed : _fillSpeed,
-		startWater : _startWater
+		startWater : _startWater,
+        pipeLevel : _pipeLevel
 	}
 
 })();
